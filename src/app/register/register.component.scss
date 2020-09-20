@@ -1,0 +1,51 @@
+.form{
+        
+    flex-basis:55%;
+    text-align: center;
+    .example-full-width
+    {
+        width:400px;
+        font-family: Poppins;
+        .label
+        {
+            color:#707070;
+            font-weight:bold
+        }
+        .text-danger
+        {
+            color:red;
+            font-family: Roboto;
+        }
+        
+    }
+    
+}
+.signbuttons
+{
+
+    flex-basis:20%;
+    margin-top:30px;
+    margin-left:-200px;
+    font-family: Poppins;
+    :hover
+    {
+        cursor: pointer;
+    }
+    .mainbtn
+    {
+        font-family: Poppins;
+        margin-right:35px;
+        color:white;
+        background-color:black;
+        font-weight:bold;
+    }
+    .togglebtn
+
+    {
+        font-family: Poppins;
+        font-weight:bold;
+
+    }
+    
+    
+}

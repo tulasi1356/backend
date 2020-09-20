@@ -1,0 +1,45 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+mat-toolbar {
+    width: 100%;
+    // position: fixed;
+    background-color: white;
+}
+.nav-bar {
+    display: flex;
+    flex-direction: row;
+    margin: 0px 10px 0px 10px;
+    width: 100%;
+    // background: fixed;
+    
+    .main-names{
+        width: 70%;
+        display: flex;
+        align-items: center;
+        // background-color: blue;
+        span {
+            width: 20%;
+            margin: 0px 15px 0px 15px;
+            // background-color: crimson;
+        }
+        .web-name {
+            width: 40%;
+            // background-color: darkgreen;
+        }
+    }
+    input {
+        margin: 0px 15px 0px 40px;
+        padding: 0px 5px 0px 5px;
+        width: 70%;
+        // background-color: brown;
+    }
+    .group-icons {
+        width: 10%;
+        align-items: center;
+        // background-color: darkorange;
+        display: flex;
+        
+    }
+}

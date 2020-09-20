@@ -1,0 +1,28 @@
+<!-- <p>login works!</p> -->
+<div class="form example-form">
+
+    <form [formGroup]="loginForm" (ngSubmit)="Onsubmit()">
+        <mat-form-field appearance="outline" class="example-full-width">
+            <mat-label class="label">Email</mat-label>
+            <input matInput class="textbox" formControlName="email">
+            <!-- <mat-error *ngIf="!loginForm.get('email').valid">{{emailErrorMessage()}}</mat-error> -->
+        </mat-form-field>
+        <br>
+        <mat-form-field appearance="outline" class="example-full-width">
+            <mat-label class="label">Password</mat-label>
+            <input matInput class="textbox"  formControlName="password">
+            <!-- <mat-icon matSuffix (click)="hide = !hide" class="eye" style="cursor:pointer">
+                {{hide?'visibility_off':'visibility'}}
+            </mat-icon> -->
+            <!-- <mat-error *ngIf="!loginForm.get('password').valid">{{passwordErrorMessage()}}</mat-error> -->
+        </mat-form-field>
+        <br>
+        <!--signing options  -->
+        <div class="signbuttons">
+            <button mat-button class="mainbtn" type="submit" [disabled]="!loginForm.valid">Login</button>
+            <!-- <button mat-stroked-button class="togglebtn" (click)="routelogin('signup')">Sign up</button> -->
+            <!-- <a (click)="routelogin('forgot-password')">Forgot Password ?</a> -->
+        </div>
+    </form>
+
+</div>
