@@ -22,6 +22,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { VerificationComponent } from './verification/verification.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { HomepageComponent } from './homepage/homepage.component';
+import { SellformComponent } from './sellform/sellform.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,7 +30,8 @@ import { HomepageComponent } from './homepage/homepage.component';
     LoginComponent,
     VerificationComponent,
     NavbarComponent,
-    HomepageComponent
+    HomepageComponent,
+    SellformComponent
   ],
   imports: [
     BrowserModule,
