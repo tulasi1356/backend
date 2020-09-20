@@ -3,6 +3,7 @@ var cookieParser = require('cookie-parser');
 // var mongodb =require;
 const http = require('http');
 var app = express();
+var session = require('express-session')
 const auth=require('./auth');
 const path=require('path')
 var MongoClient = require('mongodb').MongoClient;
@@ -14,6 +15,12 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(bodyparser.urlencoded({extended:true}))
 app.use(bodyparser.json())
+app.use(session({
+  secret: 'keyboard cat',
+  resave: false,
+  saveUninitialized: false,
+  // cookie: { secure: true }
+}))
 // app.use(cors())
 app.use(express.static(path.join(__dirname,'dist/back')))
 app.get('/*',function(req,res){

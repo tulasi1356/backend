@@ -23,6 +23,7 @@
     "@angular/router": "~9.0.3",
     "bcrypt": "^5.0.0",
     "cookie-parser": "^1.4.5",
+    "express-session": "^1.17.1",
     "mongodb": "^3.6.1",
     "nodemailer": "^6.4.11",
     "rxjs": "~6.5.4",
