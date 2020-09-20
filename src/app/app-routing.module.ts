@@ -4,6 +4,7 @@ import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { VerificationComponent } from './verification/verification.component';
 import { HomepageComponent } from './homepage/homepage.component';
+import { SellformComponent } from './sellform/sellform.component';
 
 
 const routes: Routes = [
@@ -11,7 +12,8 @@ const routes: Routes = [
   {path: 'home', component: HomepageComponent},
   {path: 'signup', component: RegisterComponent},
   {path: 'login', component: LoginComponent},
-  {path: 'verify', component: VerificationComponent}
+  {path: 'verify', component: VerificationComponent},
+  {path:'sell',component:SellformComponent}
 
 ];
 
