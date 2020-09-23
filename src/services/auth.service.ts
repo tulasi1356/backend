@@ -20,8 +20,8 @@ private verification = '/auth/verify';
     console.log('details',details);
     return this.http.post<any>(this.loginurl,details);
   }
-  generalverification(details) {
-    return this.http.post<any>(this.verification,details);
+  generalverification() {
+    return this.http.get<any>(this.verification);
   }
 
 }

@@ -8,28 +8,31 @@ import { MatSnackBar } from '@angular/material/snack-bar';
   styleUrls: ['./verification.component.scss']
 })
 export class VerificationComponent implements OnInit {
-
-  constructor(private fb: FormBuilder,private auth: AuthService,private snackbar: MatSnackBar) { }
+public verify = false;
+  constructor(private fb: FormBuilder,private auth: AuthService,private snackbar: MatSnackBar) {
+    this.Onsubmit();
+   }
 
   ngOnInit(): void {
   }
-  verificationform = this.fb.group(
-    {
-      code: ['', [Validators.required]],
-    },
-  )
+
   showSnackbar(message) {
     console.log('snckbar')
     this.snackbar.open(message, "ok", { duration: 15000 });
   }
   Onsubmit() {
-  this.auth.generalverification(this.verificationform.value).subscribe(
+  this.auth.generalverification().subscribe(
     data => {
       console.log(data,'datta');
       if(data === 'invalid') {
         // this.matter = data;
-        this.showSnackbar("incorrect code")
-      } 
+        this.showSnackbar("incorrect code");
+      } else if(data === "email is verified") {
+        this.verify = true;
+        this.showSnackbar("email verification is completed");
+      } else {
+        this.showSnackbar("check mail id");
+      }
     }
   )
   }

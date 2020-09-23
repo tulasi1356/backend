@@ -47,9 +47,9 @@ MongoClient.connect(url, function(err, db) {
           }
           // *** New User ***
           else {
-            console.log('else')
+            // console.log('else')
               dbo.collection("registerdetails").insertOne(myobj, function(err, res) {
-                console.log('ressss',res.ops[0].name)
+                // console.log('ressss',res.ops[0].name)
                  // ******** MAIL VERIFICATIONS *********
                  var transporter = nodemailer.createTransport({
                   service: 'gmail',
@@ -63,7 +63,7 @@ MongoClient.connect(url, function(err, db) {
                   to: req.body.email,
                   subject: 'Verification code',
                   text:hash,
-                  html:'welcome Mr.'+res.ops[0].name+ 'to confirm your mail <a href="http://localhost:3000/verify?id='+res.ops[0]._id+'">click</a><br>'
+                  html:'welcome '+res.ops[0].name+ 'to confirm your mail <a href="http://localhost:3000/verify?id='+res.ops[0]._id+'">click</a><br>'
                 };
                 transporter.sendMail(mailOptions, function(error, info){
                   if (error) {
@@ -84,12 +84,10 @@ MongoClient.connect(url, function(err, db) {
           res.status(500).send()
         } 
 })
-router.post('/verify',function(req,res) {
-  // console.log('otp in ver',OTP,req.body.code)
-  // console.log(req.session.details,'session',)
-  console.log(req)
-  id=req.query['id']
-  console.log('id=',req.query['id'])
+router.get('/verify',function(req,res) {
+  // console.log(req)
+  id=req.query.id
+  console.log('id=',req.query.id)
   dbo.collection("registerdetails").find({_id:id}).toArray(function(err, result) {
     console.log('password',result)
     if(err){
@@ -104,7 +102,7 @@ router.post('/verify',function(req,res) {
     dbo.collection("registerdetails").findOneAndUpdate({_id:id},{$set:{verify:true}},{new:true},
       function(err,response){
           if(err) throw err
-          res.json("email is verified")
+          response.json("email is verified")
       })
   }
 
@@ -113,11 +111,8 @@ router.post('/verify',function(req,res) {
 })
 router.post('/login',function(req,res){
   dbo.collection("registerdetails").find({email:req.body.email}).toArray(function(err, result) {
-    console.log('result',result);
-    
-    // console.log('............',result[0].password,bcrypt.compareSync(req.body.password,result[0].password),bcrypt.compareSync(result[0].password,req.body.password));
+    // console.log('result',result);
     if(result.length > 0 &&  !bcrypt.compareSync(req.body.password,result[0].password)) {
-      // console.log(result[0].password,'l',req.body.password)
       res.send(JSON.stringify('password is incorrect'))
     } else if(result.length === 0) {
       res.send(JSON.stringify('account does not exit'))

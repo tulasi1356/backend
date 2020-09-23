@@ -1,13 +1,4 @@
 <!-- <p>verification works!</p> -->
-
-<div class="form example-form">
-
-    <form [formGroup]="verificationform" (ngSubmit)="Onsubmit()">
-        <mat-form-field appearance="outline" class="example-full-width">
-            <mat-label class="label">Code</mat-label>
-            <input matInput class="textbox" formControlName="code">
-            <!-- <mat-error *ngIf="!loginForm.get('email').valid">{{emailErrorMessage()}}</mat-error> -->
-        </mat-form-field>
-        <button type="submit">Click here</button>
-    </form>
+<div *ngIf="verify">
+    <app-homepage></app-homepage>
 </div>
