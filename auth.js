@@ -1,6 +1,7 @@
 const express=require('express')
 const router=express.Router()
 
+var ObjectId = require('mongodb').ObjectID;
 
 const nodemailer = require('nodemailer');
 var MongoClient = require('mongodb').MongoClient;
@@ -32,7 +33,8 @@ MongoClient.connect(url, function(err, db) {
   // });
   
   router.post('/signup', async (req,res) => {
-    let hash = await bcrypt.hash(req.body.password,saltRounds)
+    let hash="ah"
+    // let hash = await bcrypt.hash(req.body.password,saltRounds)
     myobj={name:req.body.username,email:req.body.email,password:hash,verify:false}
         try {
           dbo.collection("registerdetails").find({email:req.body.email}).toArray(function(err, result) { 
@@ -63,7 +65,7 @@ MongoClient.connect(url, function(err, db) {
                   to: req.body.email,
                   subject: 'Verification code',
                   text:hash,
-                  html:'welcome '+res.ops[0].name+ 'to confirm your mail <a href="http://localhost:3000/verify?id='+res.ops[0]._id+'">click</a><br>'
+                  html:'welcome '+res.ops[0].name+ 'to confirm your mail <a href="http://localhost:3000/auth/verify?id='+res.ops[0]._id+'">click</a><br>'
                 };
                 transporter.sendMail(mailOptions, function(error, info){
                   if (error) {
@@ -87,7 +89,8 @@ MongoClient.connect(url, function(err, db) {
 router.get('/verify',function(req,res) {
   // console.log(req)
   id=req.query.id
-  console.log('id=',req.query)
+  console.log('id=',req.query.id,id)
+  id=ObjectId(id)
   dbo.collection("registerdetails").find({_id:id}).toArray(function(err, result) {
     console.log('password',result)
     if(err){
@@ -102,7 +105,7 @@ router.get('/verify',function(req,res) {
     dbo.collection("registerdetails").findOneAndUpdate({_id:id},{$set:{verify:true}},{new:true},
       function(err,response){
           if(err) throw err
-          response.json("email is verified")
+          res.json("email is verified")
       })
   }
 
