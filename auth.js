@@ -82,12 +82,12 @@ MongoClient.connect(url, function(err, db) {
         } 
         catch{
           res.status(500).send()
-        } 
+        }       
 })
 router.get('/verify',function(req,res) {
   // console.log(req)
   id=req.query.id
-  console.log('id=',req.query.id)
+  console.log('id=',req.query)
   dbo.collection("registerdetails").find({_id:id}).toArray(function(err, result) {
     console.log('password',result)
     if(err){
@@ -118,7 +118,7 @@ router.post('/login',function(req,res){
       res.send(JSON.stringify('account does not exit'))
     } else {
       res.send(JSON.stringify('proceed'))
-      req.session.details = req.body
+      req.session.details = req.body;
     }
  
 

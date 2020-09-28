@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http'
+import { query } from '@angular/animations';
 
 @Injectable({
   providedIn: 'root'
@@ -21,6 +22,8 @@ private verification = '/auth/verify';
     return this.http.post<any>(this.loginurl,details);
   }
   generalverification() {
+    // console.log(id_va)
+    // console.log('hello..............',id_variable);
     return this.http.get<any>(this.verification);
   }
 
