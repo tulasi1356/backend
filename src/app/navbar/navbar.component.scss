@@ -19,13 +19,16 @@ mat-toolbar {
         display: flex;
         align-items: center;
         // background-color: blue;
+        // .web-name 
         span {
             width: 20%;
             margin: 0px 15px 0px 15px;
+            cursor: pointer;
             // background-color: crimson;
         }
         .web-name {
             width: 40%;
+            cursor: pointer;
             // background-color: darkgreen;
         }
     }
