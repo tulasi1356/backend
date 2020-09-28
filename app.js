@@ -34,7 +34,7 @@ app.use(express.static(path.join(__dirname,'dist/back')))
 
 app.use('/auth',auth);
 app.get('/*',function(req,res){
-  // console.log(__dirname,'////')
+  // console.log("entered")
   res.sendFile(path.join(__dirname,'/dist/back/index.html'))
   // console.log('ppppppppppppppp')
   // 
