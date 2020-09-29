@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import {AuthService} from '../../services/auth.service';
 import { Router } from '@angular/router';
-
+import { MatSnackBar } from '@angular/material/snack-bar';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 })
 export class RegisterComponent implements OnInit {
 public matter = '';
-  constructor(private fb:FormBuilder,private auth:AuthService,private router:Router) { }
+  constructor(private fb:FormBuilder,private auth:AuthService,private router:Router,private snackbar: MatSnackBar) { }
   signupForm = this.fb.group(
     {
       username: ['', [Validators.required]],
@@ -28,9 +28,8 @@ public matter = '';
     this.auth.generalsignup(this.signupForm.value).subscribe(
       data => { 
         console.log(data,'datta');
-        if(data === 'account exists') {
-          this.matter = data;
-        }
+        // this.matter = data;
+        this.snackbar.open(data, "ok", { duration: 15000 });
         // this.signupLoader = false;
         // if(data.status){
         // // localStorage.setItem('forward',''); 
