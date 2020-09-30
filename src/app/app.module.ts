@@ -24,6 +24,13 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { SellformComponent } from './sellform/sellform.component';
 import {MatSelectModule} from '@angular/material/select';
+import { GiftComponent } from './gift/gift.component';
+import { SidebarComponent } from './sidebar/sidebar.component';
+import { MenComponent } from './men/men.component';
+import { WomenComponent } from './women/women.component';
+import { KidsComponent } from './kids/kids.component';
+import { LikedComponent } from './liked/liked.component';
+import { BagComponent } from './bag/bag.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,7 +39,14 @@ import {MatSelectModule} from '@angular/material/select';
     VerificationComponent,
     NavbarComponent,
     HomepageComponent,
-    SellformComponent
+    SellformComponent,
+    GiftComponent,
+    SidebarComponent,
+    MenComponent,
+    WomenComponent,
+    KidsComponent,
+    LikedComponent,
+    BagComponent
   ],
   imports: [
     BrowserModule,

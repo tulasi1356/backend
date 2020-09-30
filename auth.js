@@ -33,8 +33,8 @@ MongoClient.connect(url, function(err, db) {
   // });
   
   router.post('/signup', async (req,res) => {
-    let hash="ah"
-    // let hash = await bcrypt.hash(req.body.password,saltRounds)
+    // let hash="ah"
+    let hash = await bcrypt.hash(req.body.password,saltRounds)
     myobj={name:req.body.username,email:req.body.email,password:hash,verify:false}
         try {
           dbo.collection("registerdetails").find({email:req.body.email}).toArray(function(err, result) { 
@@ -50,7 +50,7 @@ MongoClient.connect(url, function(err, db) {
           // *** New User ***
           else {
             res.send(JSON.stringify('check your mail'));
-            console.log('else',req.body.email)
+            // console.log('else',req.body.email)
               dbo.collection("registerdetails").insertOne(myobj, function(err, res) {
                 // console.log('ressss',res.ops[0].name)
                 
@@ -105,7 +105,7 @@ router.get('/verify',function(req,res) {
   else if(result[0].verify==true){
       res.send(JSON.stringify("your mail is already  verified"))
   } else {
-    dbo.collection("registerdetails").findOneAndUpdate({_id:id},{$set:{verify:true}},{new:true},
+    dbo.collection("registerdetails").findOneAndUpdate({_id:id},{$set: {verify:true}},{new:true},
       function(err,response){
           if(err) throw err
           console.log(response,'final');
