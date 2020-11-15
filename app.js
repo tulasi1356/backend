@@ -1,7 +1,5 @@
 var express = require('express');
 var cookieParser = require('cookie-parser');
-// var async = require("async");
-// var mongodb =require;
 const http = require('http');
 var app = express();
 var session = require('express-session')
@@ -34,10 +32,7 @@ app.use(express.static(path.join(__dirname,'dist/back')))
 
 app.use('/auth',auth);
 app.get('/*',function(req,res){
-  // console.log("entered")
   res.sendFile(path.join(__dirname,'/dist/back/index.html'))
-  // console.log('ppppppppppppppp')
-  // 
   // app.use(express.static(path.join(__dirname,'auth')))
   
 })

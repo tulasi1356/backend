@@ -13,7 +13,7 @@ const routes: Routes = [
   {path: 'home', component: HomepageComponent},
   {path: 'signup', component: RegisterComponent},
   {path: 'login', component: LoginComponent},
-  {path: 'auth/verify', component: VerificationComponent},
+  {path: 'verify1', component: VerificationComponent},
   {path:'sell',component:SellformComponent},
   {path:'gift',component:GiftComponent}
 

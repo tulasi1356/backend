@@ -52,7 +52,7 @@ MongoClient.connect(url, function(err, db) {
             res.send(JSON.stringify('check your mail'));
             // console.log('else',req.body.email)
               dbo.collection("registerdetails").insertOne(myobj, function(err, res) {
-                // console.log('ressss',res.ops[0].name)
+                console.log('ressss',res.ops[0].name)
                 
                  // ******** MAIL VERIFICATIONS *********
                  var transporter = nodemailer.createTransport({
@@ -68,7 +68,7 @@ MongoClient.connect(url, function(err, db) {
                   to: req.body.email,
                   subject: 'Verification code',
                   text:hash,
-                  html:'welcome '+res.ops[0].name+ 'to confirm your mail <a href="http://localhost:3000/auth/verify?id='+res.ops[0]._id+'">click</a><br>'
+                  html:'welcome '+res.ops[0].name + 'to confirm your mail <a href="http://localhost:3000/auth/verify?id='+res.ops[0]._id+'">click</a><br>'
                 };
                 transporter.sendMail(mailOptions, function(error, info){
                   if (error) {
@@ -114,7 +114,6 @@ router.get('/verify',function(req,res) {
 
   }
 
-
   })
 })
 router.post('/login',function(req,res){
@@ -126,7 +125,9 @@ router.post('/login',function(req,res){
       res.send(JSON.stringify('account does not exit'))
     } else {
       res.send(JSON.stringify('proceed'))
-      req.session.details = req.body;
+      // console.log('details',result);
+      req.session.details = result;
+      console.log('sesssions',req.session.details);
     }
  
 

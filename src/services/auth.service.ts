@@ -23,7 +23,7 @@ private verification = '/auth/verify';
   }
   generalverification() {
     // console.log(id_va)
-    // console.log('hello..............',id_variable);
+    console.log('hello..............');
     return this.http.get<any>(this.verification);
   }
 
