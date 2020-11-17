@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import {AuthService} from '../../services/auth.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import {Router} from '@angular/router';
+// import { Route } from '@angular/compiler/src/core';
 
 @Component({
   selector: 'app-login',
@@ -9,8 +11,8 @@ import { MatSnackBar } from '@angular/material/snack-bar';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-public matter;
-  constructor(private fb: FormBuilder,private auth: AuthService,private snackbar: MatSnackBar) { }
+public matter = false;
+  constructor(private fb: FormBuilder,private auth: AuthService,private snackbar: MatSnackBar,private router:Router) { }
 
   ngOnInit(): void {
   }
@@ -31,11 +33,15 @@ this.auth.generallogin(this.loginForm.value).subscribe(
     console.log(data,'datta');
     if(data === 'password is incorrect') {
       // this.matter = data;
-      this.showSnackbar("password is incorrect")
+      this.showSnackbar('password is incorrect')
     } else if(data === 'account does not exit') {
-      this.showSnackbar("signup first");
+      this.showSnackbar('signup first');
     } else {
-      this.showSnackbar('proceed');
+      console.log('%c T','color:red',data);
+      this.auth.username = data;
+      this.router.navigate(['/home']);
+      // this.showSnackbar(data);
+      // this.matter = true;
     }
   }
   );}

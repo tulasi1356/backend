@@ -6,10 +6,12 @@ import { query } from '@angular/animations';
   providedIn: 'root'
 })
 export class AuthService {
-
+public username='';
 private url='/auth/signup';
 private loginurl = '/auth/login';
 private verification = '/auth/verify';
+public userdertails = '/auth/details';
+public userlogout = '/auth/logout';
   constructor(private http: HttpClient,) { 
     console.log('ddddddddddddd');
   }
@@ -26,5 +28,10 @@ private verification = '/auth/verify';
     console.log('hello..............');
     return this.http.get<any>(this.verification);
   }
-
+  generaluserdetails() {
+    return this.http.get<any>(this.userdertails);
+  }
+  logoutthedetails() {
+    return this.http.get<any>(this.userlogout)
+  }
 }

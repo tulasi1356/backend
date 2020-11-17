@@ -19,9 +19,16 @@
      <mat-icon>shopping_bag</mat-icon>
    </button>
    <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
-     <mat-icon [matMenuTriggerFor]="appMenu">person</mat-icon>
+     <mat-icon  matTooltip="auth.username"  [matMenuTriggerFor]="appMenu">person</mat-icon>
+
      <mat-menu class="menu-overflow-hidden" #appMenu="matMenu">
-      <button mat-raised-button routerLink="/signup">Login/signup</button>
+      <button *ngIf="auth.username == null ||auth.username.length==0 ; else userinfo" mat-raised-button routerLink="/signup">Login/signup</button>
+      <ng-template #userinfo>
+        <!-- <p>{{auth.username}}</p> -->
+        <!-- {{auth.username}} -->
+        <button mat-raised-button routerLink="/signup" (click)="logout()">Logout</button>
+      </ng-template>
+
 
      </mat-menu>
    </button>
