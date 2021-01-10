@@ -7,22 +7,29 @@
             <h1>Make Your</h1>
             <h1>Shopping Easy</h1><br>
             <p>save time shop easy</p>
-            <div class="discount" style="text-align: center;">
+            <div  class="discount" style="text-align: center;">
             <b>UPTO 70% OFF</b>
             </div>
             </div>
         </div>
         <div class="image" style="display: flex;flex-direction: row;">
-            <img src="../../assets/undraw_Designer_girl_s028.svg" width="400px" height="400px" >
+            <img   fadeInAnimation
+            [duration]="1"
+            [delay]="1"
+            src="../../assets/undraw_Designer_girl_s028.svg" width="400px" height="400px" >
             <!-- <img src="../../assets/blob (2).svg"> -->
             <!-- <a style="width: 400px;height: 400px;" href='https://www.freepik.com/vectors/shopping'>Shopping vector created by stories - www.freepik.com</a> -->
         </div>
     </div>
-    <h1 style="text-align: center;">Catch the best deals</h1>
-    <div class="cards">
+    <h1 fadeInAnimation
+    [duration]="1"
+    [delay]="1"  style="text-align: center;">Catch the best deals</h1>
+    <div class="cards" bounceInAnimation
+    [duration]="2"
+    [delay]="2">
         <mat-card >
           
-            <img class="image" mat-card-image src="../../assets/fashion.jpg" >
+            <img  class="image" mat-card-image src="../../assets/fashion.jpg" >
             <mat-card-content>
               <p style="text-align: center;">
                   <b>Flat 50% off</b>
@@ -30,7 +37,7 @@
             </mat-card-content>
           </mat-card>
           <mat-card >
-            <img class="image" mat-card-image src="../../assets/laptop.jpg" >
+            <img  class="image" mat-card-image src="../../assets/laptop.jpg" >
             <mat-card-content>
               <p style="text-align: center;">
                   <b>Flat 50% off</b>

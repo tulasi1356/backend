@@ -8,6 +8,8 @@ import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
+import {BounceInAnimationDirective} from './directives/gsap/bounce-in-animations';
+import {FadeInAnimationDirective} from './directives/gsap/fade-in-animation.directive';
 // MAT FIELDS
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
@@ -34,6 +36,8 @@ import { BagComponent } from './bag/bag.component';
 @NgModule({
   declarations: [
     AppComponent,
+    BounceInAnimationDirective,
+    FadeInAnimationDirective,
     RegisterComponent,
     LoginComponent,
     VerificationComponent,
