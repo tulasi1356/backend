@@ -20,6 +20,7 @@ export class ContinousrotationInAnimationDirective extends CoreAnimationDirectiv
   protected animateIn() {
     TweenLite.to(this.element.nativeElement, 5, {x:'1000px', ease:SteppedEase.config(10)});
     var  t1= this.timeline.from(this.element.nativeElement, this.duration, {opacity:'0',rotate:270,repeat:-1, ease:"back"}, this.delay);
+    // TweenLite.to(this.element.nativeElement, 5, {x:'-100px', ease:SteppedEase.config(10)});
     // t1.to(this.element.nativeElement, 30, {
     //     backgroundImage:("https://s3-us-west-2.amazonaws.com/s.cdpn.io/56901/bg-clouds.png"),
     //     backgroundPosition: "-2247px 0px",
