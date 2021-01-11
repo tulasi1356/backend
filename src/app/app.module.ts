@@ -10,6 +10,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
 import {BounceInAnimationDirective} from './directives/gsap/bounce-in-animations';
 import {FadeInAnimationDirective} from './directives/gsap/fade-in-animation.directive';
+import {ContinousrotationInAnimationDirective} from './directives/gsap/rotations-in-animations';
+import {MovingInAnimationDirective} from './directives/gsap/moving-in-animations';
 // MAT FIELDS
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
@@ -33,13 +35,17 @@ import { WomenComponent } from './women/women.component';
 import { KidsComponent } from './kids/kids.component';
 import { LikedComponent } from './liked/liked.component';
 import { BagComponent } from './bag/bag.component';
+
 @NgModule({
   declarations: [
     AppComponent,
     BounceInAnimationDirective,
     FadeInAnimationDirective,
+    ContinousrotationInAnimationDirective,
+    MovingInAnimationDirective,
     RegisterComponent,
     LoginComponent,
+
     VerificationComponent,
     NavbarComponent,
     HomepageComponent,

@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {TimelineMax} from 'gsap';
 import {gsap} from 'gsap';
+// import ScrollToPlugin from 'gsap/ScrollToPlugin';
+import {ScrollTrigger} from 'gsap/all';
+// import { gsap, Power2, Elastic } from 'gsap/all';
 @Component({
   selector: 'app-homepage',
   templateUrl: './homepage.component.html',
@@ -10,7 +13,7 @@ export class HomepageComponent implements OnInit {
   // showP = true;
   constructor() { 
     
-    // gsap.registerPlugin(ScrollTrigger);
+    gsap.registerPlugin(ScrollTrigger);
     console.log(document.querySelector(".main-content"))
     if(document.querySelector(".main-content")) {
       console.log('exists');
