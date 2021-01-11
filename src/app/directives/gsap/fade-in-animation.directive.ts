@@ -9,7 +9,6 @@ export class FadeInAnimationDirective extends CoreAnimationDirective implements 
   constructor(protected element: ElementRef) {
     super(element);
   }
-  // @ViewChild('anim') myDivElementRef: ElementRef;
 
   ngOnInit() {
     // perform animation
@@ -21,6 +20,7 @@ export class FadeInAnimationDirective extends CoreAnimationDirective implements 
     // console.log('.................',this.element.nativeElement.className)
     // if(this.element.nativeElement.className=='anim') {
     this.timeline.from(this.element.nativeElement, this.duration, {opacity:'0',y:100, rotation:45, ease:"Expo.easeInOut"}, this.delay);
+   
     // TweenMax.from(this.element.nativeElement, 1.5, {opacity:0, delay:1});
     super.animateIn();
   }

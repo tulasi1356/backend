@@ -9,6 +9,19 @@ import {gsap} from 'gsap';
 export class HomepageComponent implements OnInit {
   // showP = true;
   constructor() { 
+    
+    // gsap.registerPlugin(ScrollTrigger);
+    console.log(document.querySelector(".main-content"))
+    if(document.querySelector(".main-content")) {
+      console.log('exists');
+    gsap.to('.main-content', {
+      x: 500,
+      rotation:360,
+      // duration:3
+    });
+  } else {
+    console.log('doesnt exit')
+  }
    
   }
 
