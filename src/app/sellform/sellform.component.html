@@ -70,12 +70,20 @@
                 [class.is-invalid]="sellproductform.get('size').touched && sellproductform.get('size').invalid">
         </mat-form-field>
         <br>
-        <input type="file">
+       
         <mat-form-field appearance="outline" class="example-full-width">
             <mat-label class="label">Videolink</mat-label>
+            
             <input matInput class="textbox" formControlName="videolink"
                 [class.is-invalid]="sellproductform.get('videolink').touched && sellproductform.get('videolink').invalid">
         </mat-form-field>
+        <br>
+        <div class="imagesection">
+            <img *ngIf="imagechecking" [src]="url" class="imagethumbnail" width="100px"
+            height="100px">
+            <input type="file" id="file" formControlName="image" (change)="selectFile($event)"><label for="file"
+            style="cursor: pointer;">Upload<br> cover photo</label>
+        </div>
         <br>
     </form>
     </div>
