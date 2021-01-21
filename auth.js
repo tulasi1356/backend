@@ -19,17 +19,17 @@ MongoClient.connect(url, function(err, db) {
      
   })
 
-  // // USED TO DELETE DATA IN COLLECTION
-  // MongoClient.connect(url, function(err, db) {
-  //   if (err) throw err;
-  //   var dbo = db.db("learningbackend");
-  //   //Delete the "customers" collection:
-  //   dbo.collection("registerdetails").drop(function(err, delOK) {
-  //     if (err) throw err;
-  //     if (delOK) console.log("Collection deleted");
-  //     db.close();
-  //   });
-  // });
+  // USED TO DELETE DATA IN COLLECTION
+  MongoClient.connect(url, function(err, db) {
+    if (err) throw err;
+    var dbo = db.db("learningbackend");
+    //Delete the "customers" collection:
+    dbo.collection("registerdetails").drop(function(err, delOK) {
+      if (err) throw err;
+      if (delOK) console.log("Collection deleted");
+      db.close();
+    });
+  });
   
   router.post('/signup', async (req,res) => {
     // let hash="ah"

@@ -2,7 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import {TimelineMax} from 'gsap';
 import {gsap} from 'gsap';
 // import ScrollToPlugin from 'gsap/ScrollToPlugin';
+// import "./install-gsap.js";
 import {ScrollTrigger} from 'gsap/all';
+// import ScrollMagic from "scrollmagic";
 // import { gsap, Power2, Elastic } from 'gsap/all';
 @Component({
   selector: 'app-homepage',
@@ -13,22 +15,32 @@ export class HomepageComponent implements OnInit {
   // showP = true;
   constructor() { 
     
-    gsap.registerPlugin(ScrollTrigger);
-    console.log(document.querySelector(".main-content"))
-    if(document.querySelector(".main-content")) {
-      console.log('exists');
-    gsap.to('.main-content', {
-      x: 500,
-      rotation:360,
-      // duration:3
-    });
-  } else {
-    console.log('doesnt exit')
-  }
+   
    
   }
 
   ngOnInit(): void {
+    
+    // console.log(document.querySelector(".selling"))
+    if(document.querySelector(".selling")) {
+      gsap.registerPlugin(ScrollTrigger);
+      console.log(gsap.registerPlugin(ScrollTrigger))
+      var tl = gsap.timeline({
+        scrollTrigger:{
+          trigger: ".selling",
+          toggleActions:"play pause none none"
+
+        }
+      });
+      
+      tl.to(".selling", {
+        duration: 3,
+        rotation:360
+        // opacity: 0.1
+      });
+  } else {
+    console.log('doesnt exit')
+  }
   }
 
 }
