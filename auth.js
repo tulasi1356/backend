@@ -38,15 +38,16 @@ MongoClient.connect(url, function(err, db) {
       console.log('result',result);
       if(result.length>0) {
         res.send(JSON.stringify('exists'))
-        console.log(result[0]._id,req.body.password)
+        // console.log(result[0]._id,req.body.password)
         id=req.query.id
         id=ObjectId(id)
-        console.log(id,'id');
         bcrypt.hash(req.body.password, saltRounds, function(err, hash) {
-        console.log(hash);
-        dbo.collection("registerdetails").findOneAndUpdate({_id:id},{$set: {password:hash}},{new:true},
+        console.log(hash,id);
+        dbo.collection("registerdetails").findOneAndUpdate({email:req.body.email},{$set: {password:hash}},{new:true},
           function(err,response){
-              if(err) throw err
+              if(err) {
+                console.log(err)
+              }
               console.log(response,'final');
               // res.send(JSON.stringify("email is verified"))
 
@@ -149,7 +150,7 @@ router.get('/verify',function(req,res) {
 
 router.post('/login',function(req,res){
   dbo.collection("registerdetails").find({email:req.body.email}).toArray(function(err, result) {
-    // console.log('result',result);
+    console.log('result',result);
     if(result.length > 0 &&  !bcrypt.compareSync(req.body.password,result[0].password)) {
       res.send(JSON.stringify('password is incorrect'))
     } else if(result.length === 0) {
