@@ -44,5 +44,9 @@ this.auth.generallogin(this.loginForm.value).subscribe(
       // this.matter = true;
     }
   }
-  );}
+  );
+}
+forgetpassword() {
+  this.router.navigate(['/forgotpassword'])
+}
 }

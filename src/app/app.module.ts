@@ -35,6 +35,7 @@ import { WomenComponent } from './women/women.component';
 import { KidsComponent } from './kids/kids.component';
 import { LikedComponent } from './liked/liked.component';
 import { BagComponent } from './bag/bag.component';
+import { ForgotpasswordComponent } from './forgotpassword/forgotpassword.component';
 
 @NgModule({
   declarations: [
@@ -56,7 +57,8 @@ import { BagComponent } from './bag/bag.component';
     WomenComponent,
     KidsComponent,
     LikedComponent,
-    BagComponent
+    BagComponent,
+    ForgotpasswordComponent
   ],
   imports: [
     BrowserModule,

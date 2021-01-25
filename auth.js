@@ -2,13 +2,15 @@ const express=require('express')
 const router=express.Router()
 
 var ObjectId = require('mongodb').ObjectID;
-
+const myPlaintextPassword = 's0/\/\P4$$w0rD';
 const nodemailer = require('nodemailer');
 var MongoClient = require('mongodb').MongoClient;
 var session = require('express-session')
 var url = "mongodb://localhost:27017/";
 var dbo
+var password1;
 var OTP
+// const password1;
 const bcrypt = require('bcrypt');
 const uniqid = require('uniqid');
 const { getMaxListeners } = require('process');
@@ -19,18 +21,44 @@ MongoClient.connect(url, function(err, db) {
      
   })
 
-  // USED TO DELETE DATA IN COLLECTION
-  MongoClient.connect(url, function(err, db) {
-    if (err) throw err;
-    var dbo = db.db("learningbackend");
-    //Delete the "customers" collection:
-    dbo.collection("registerdetails").drop(function(err, delOK) {
-      if (err) throw err;
-      if (delOK) console.log("Collection deleted");
-      db.close();
-    });
-  });
+  // // USED TO DELETE DATA IN COLLECTION
+  // MongoClient.connect(url, function(err, db) {
+  //   if (err) throw err;
+  //   var dbo = db.db("learningbackend");
+  //   //Delete the "customers" collection:
+  //   dbo.collection("registerdetails").drop(function(err, delOK) {
+  //     if (err) throw err;
+  //     if (delOK) console.log("Collection deleted");
+  //     db.close();
+  //   });
+  // });
   
+  router.post('/forgetpasword',function(req,res){
+    dbo.collection("registerdetails").find({email:req.body.email}).toArray(function(err, result) {
+      console.log('result',result);
+      if(result.length>0) {
+        res.send(JSON.stringify('exists'))
+        console.log(result[0]._id,req.body.password)
+        id=req.query.id
+        id=ObjectId(id)
+        console.log(id,'id');
+        bcrypt.hash(req.body.password, saltRounds, function(err, hash) {
+        console.log(hash);
+        dbo.collection("registerdetails").findOneAndUpdate({_id:id},{$set: {password:hash}},{new:true},
+          function(err,response){
+              if(err) throw err
+              console.log(response,'final');
+              // res.send(JSON.stringify("email is verified"))
+
+    
+          })  
+      });
+   
+      } if(result.length === 0) {
+        res.send(JSON.stringify('doesnot exist'))
+      } 
+    })
+  })
   router.post('/signup', async (req,res) => {
     // let hash="ah"
     let hash = await bcrypt.hash(req.body.password,saltRounds)
