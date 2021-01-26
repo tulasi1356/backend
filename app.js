@@ -4,6 +4,7 @@ const http = require('http');
 var app = express();
 var session = require('express-session')
 const auth=require('./auth');
+const sell = require('./sell');
 const path=require('path')
 var MongoClient = require('mongodb').MongoClient;
 var url = "mongodb://localhost:27017/";
@@ -31,6 +32,7 @@ app.use(express.static(path.join(__dirname,'dist/back')))
 
 
 app.use('/auth',auth);
+app.use('/sell',sell);
 app.get('/*',function(req,res){
   res.sendFile(path.join(__dirname,'/dist/back/index.html'))
   // app.use(express.static(path.join(__dirname,'auth')))

@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormBuilder, Validators } from '@angular/forms';
+import { SellserviceService} from '../../services/sellservice.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
+
 @Component({
   selector: 'app-sellform',
   templateUrl: './sellform.component.html',
@@ -13,7 +16,7 @@ public imagechoosentoupload = false
 public selectedimage
 public url;
   imagechecking: boolean;
-  constructor(private fb:FormBuilder,private router:Router) { }
+  constructor(private fb:FormBuilder,private router:Router,private sell:SellserviceService,private snackbar: MatSnackBar,) { }
   sellproductform = this.fb.group({
     companyname: ['', Validators.required],
     productname: ['', Validators.required],
@@ -27,6 +30,7 @@ public url;
     size:['',Validators.required],
     noofproducts:['',Validators.required],
     image:['',Validators.required],
+    place:['',Validators.required],
     videolink:[''],
     
 
@@ -35,7 +39,22 @@ public url;
   })
   ngOnInit(): void {
   }
-Onsubmit() {}
+Onsubmit() {
+this.sell.generalsellform(this.sellproductform.value).subscribe(
+  data => {
+    if(data==='succesful') {
+      this.showSnackbar('added successfully');
+
+    } else {
+      this.showSnackbar('something wrong try again');
+    }
+  }
+)
+}
+showSnackbar(message) {
+  console.log('snckbar')
+  this.snackbar.open(message, "ok", { duration: 15000 });
+}
 selectFile(event) {
   this.imagechoosentoupload = true
   if (event.target.files.length > 0) {
