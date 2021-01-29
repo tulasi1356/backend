@@ -41,6 +41,6 @@ app.get('/*',function(req,res){
   // app.use(express.static(path.join(__dirname,'auth')))
   
 })
-app.listen(process.env.Port || 3000, () => {
+app.listen(process.env.PORT || 3000, () => {
   console.log(`serving on port`)
 })
