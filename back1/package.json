@@ -1,0 +1,12 @@
+{
+    "name": "deploy_be",
+    "version": "0.0.0",
+    "scripts": {
+        "start": "node serverjgd.js"
+    },
+    "dependencies": {
+        "body-parser": "^1.19.0",
+        "express": "^4.17.1",
+        "mongodb": "^3.6.1"
+    }
+}
