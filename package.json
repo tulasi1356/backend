@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "node ./back1/app.js",
-    "build": "ng build",
+    "build": "cd frontend ng build",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
