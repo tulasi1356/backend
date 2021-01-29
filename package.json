@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "nodemon ./app.js",
+    "start": "node ./back1/app.js",
     "build": "ng build --prod",
     "test": "ng test",
     "lint": "ng lint",
