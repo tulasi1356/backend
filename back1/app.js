@@ -5,7 +5,7 @@ var app = express();
 var session = require('express-session')
 const auth=require('./auth');
 var serverPort = 3000;
-const port = Process.env.PORT || serverPort; 
+const port = process.env.PORT || serverPort; 
 // const sell = require('./sell');
 const path=require('path')
 
