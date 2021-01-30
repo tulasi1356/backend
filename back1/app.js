@@ -4,8 +4,8 @@ const http = require('http');
 var app = express();
 var session = require('express-session')
 const auth=require('./auth');
-var serverPort = 3000;
-const PORT = process.env.PORT || 5000;
+var server_port = process.env.YOUR_PORT || process.env.PORT || 5000;
+var server_host = process.env.YOUR_HOST || '0.0.0.0';
 // const sell = require('./sell');
 const path=require('path')
 
@@ -43,6 +43,6 @@ app.get('/*',function(req,res){
   // app.use(express.static(path.join(__dirname,'auth')))
   
 })
-app.listen(PORT, () => {
+app.listen(server_port, server_host, () => {
   console.log(`serving on port`)
 })
