@@ -5,7 +5,7 @@ var app = express();
 var session = require('express-session')
 const auth=require('./auth');
 var serverPort = 3000;
-const port = process.env.PORT || serverPort; 
+const PORT = process.env.PORT || 5000;
 // const sell = require('./sell');
 const path=require('path')
 
@@ -43,6 +43,6 @@ app.get('/*',function(req,res){
   // app.use(express.static(path.join(__dirname,'auth')))
   
 })
-app.listen(port, () => {
+app.listen(PORT, () => {
   console.log(`serving on port`)
 })
