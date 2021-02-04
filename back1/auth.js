@@ -1,6 +1,6 @@
 const express=require('express')
 const router=express.Router()
-
+const User = require('./dbconnections/User');
 var ObjectId = require('mongodb').ObjectID;
 const myPlaintextPassword = 's0/\/\P4$$w0rD';
 const nodemailer = require('nodemailer');
@@ -64,6 +64,14 @@ MongoClient.connect(url, function(err, db) {
     // let hash="ah"
     let hash = await bcrypt.hash(req.body.password,saltRounds)
     myobj={name:req.body.username,email:req.body.email,password:hash,verify:false}
+    // let user ={};
+    // user.name=myobj.name
+    // user.email=myobj.email
+    // user.password = myobj.password
+    // user.verify = myobj.verify
+    // let userModel= new User(user)
+    // await userModel.save()
+    console.log("usermodel",userModel);
         try {
           dbo.collection("registerdetails").find({email:req.body.email}).toArray(function(err, result) { 
             console.log(result.length)  
@@ -96,7 +104,7 @@ MongoClient.connect(url, function(err, db) {
                   to: req.body.email,
                   subject: 'Verification code',
                   text:hash,
-                  html:'welcome '+res.ops[0].name + 'to confirm your mail <a href="http://localhost:3000/auth/verify?id='+res.ops[0]._id+'">click</a><br>'
+                  html:'welcome '+res.ops[0].name + 'to confirm your mail <a href="http://localhost:5000/auth/verify?id='+res.ops[0]._id+'">click</a><br>'
                 };
                 transporter.sendMail(mailOptions, function(error, info){
                   if (error) {

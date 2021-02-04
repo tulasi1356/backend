@@ -1,7 +1,8 @@
 var express = require('express');
-var cookieParser = require('cookie-parser');
+// var cookieParser = require('cookie-parser');
 const http = require('http');
 var app = express();
+const connectDB = require('./dbconnections/connections')
 var session = require('express-session')
 const auth=require('./auth');
 var serverPort = 3000;
@@ -12,11 +13,12 @@ const path=require('path')
 var MongoClient = require('mongodb').MongoClient;
 var url = "mongodb://localhost:27017/";
 const bodyparser=require('body-parser') 
+connectDB()
 app.use(express.json());
 
 
 app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser());
+// app.use(cookieParser());
 app.use(bodyparser.urlencoded({extended:true}))
 app.use(bodyparser.json())
 var sess={
