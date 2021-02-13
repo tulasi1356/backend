@@ -17,7 +17,7 @@ public matter = '';
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(8)]],
       repeatpassword: ['', [Validators.required]]
-    })
+        })
  
   ngOnInit(): void {
   }
