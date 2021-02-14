@@ -36,7 +36,10 @@ import { KidsComponent } from './kids/kids.component';
 import { LikedComponent } from './liked/liked.component';
 import { BagComponent } from './bag/bag.component';
 import { ForgotpasswordComponent } from './forgotpassword/forgotpassword.component';
-
+import {AngularFireModule} from "@angular/fire";
+import {AngularFireStorageModule} from "@angular/fire/storage";
+import {AngularFireDatabaseModule} from "@angular/fire/database";
+import { environment } from "../environments/environment";
 @NgModule({
   declarations: [
     AppComponent,
@@ -76,7 +79,13 @@ import { ForgotpasswordComponent } from './forgotpassword/forgotpassword.compone
     MatToolbarModule,
     MatCardModule,
     MatMenuModule,
-    MatSelectModule
+    MatSelectModule,
+    AngularFireStorageModule,
+    AngularFireModule,
+    AngularFireDatabaseModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+
+    // AngularFireModule.initializeApp(environment.firebaseConfig, "cloud")
   ],
   providers: [],
   bootstrap: [AppComponent]
