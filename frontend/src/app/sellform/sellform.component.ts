@@ -4,7 +4,8 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { SellserviceService} from '../../services/sellservice.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import {AngularFireStorage} from '@angular/fire/storage';
-
+import { map, finalize } from "rxjs/operators";
+import { Observable } from "rxjs";
 // import {AngularFireStorageModule} from '@angular/fire/storage'
 // import {AngularFireModule} from '@angular/fire'
 @Component({
@@ -33,7 +34,7 @@ filePath:String
     age: ['', Validators.required],
     size:['',Validators.required],
     noofproducts:['',Validators.required],
-    image:['',Validators.required],
+    // image:['',Validators.required],
     place:['',Validators.required],
     videolink:[''],
     
@@ -48,14 +49,35 @@ filePath:String
   upload($event) {    
     this.filePath = $event.target.files[0]
   }
-  uploadImage(){
-    console.log(this.filePath)
-    this.afStorage.upload('/images'+Math.random()+this.filePath, this.filePath);
-    
-    console.log(this.afStorage.upload('/images'+Math.random()+this.filePath, this.filePath))
-      
-  }
+  downloadURL: Observable<string>;
+  fb1;
 Onsubmit() {
+  console.log("********")
+  var n = Date.now();
+    // const file = event.target.files[0];
+    // const filePath = `/images`;
+    // this.filePath = $event.target.files[0]
+    const file = `RoomsImages/${n}`;
+    const fileRef = this.afStorage.ref(file);
+    const task= this.afStorage.upload(`RoomsImages/${n}`, this.filePath);
+    task.snapshotChanges()
+    .pipe(
+      finalize(() => {
+        this.downloadURL = fileRef.getDownloadURL();
+        this.downloadURL.subscribe(url => {
+          if (url) {
+            this.fb1 = url;
+          }
+          console.log('url2',this.fb1);
+        });
+      })
+    )
+    .subscribe(url => {
+      if (url) {
+        console.log('url1',url);
+      }
+    });
+  
 this.sell.generalsellform(this.sellproductform.value).subscribe(
   data => {
     if(data==='succesful') {
@@ -71,18 +93,18 @@ showSnackbar(message) {
   console.log('snckbar')
   this.snackbar.open(message, "ok", { duration: 15000 });
 }
-selectFile(event) {
-  this.imagechoosentoupload = true
-  if (event.target.files.length > 0) {
-    const file = event.target.files[0]
-    this.selectedimage = event.target.files[0]
-    var reader = new FileReader();
-    reader.onload = (event: any) => {
-      this.imagechecking = true;
-      this.url = event.target.result;
-    }
-    reader.readAsDataURL(file);
+// selectFile(event) {
+//   this.imagechoosentoupload = true
+//   if (event.target.files.length > 0) {
+//     const file = event.target.files[0]
+//     this.selectedimage = event.target.files[0]
+//     var reader = new FileReader();
+//     reader.onload = (event: any) => {
+//       this.imagechecking = true;
+//       this.url = event.target.result;
+//     }
+//     reader.readAsDataURL(file);
 
-  }
-}
+//   }
+// }
 }

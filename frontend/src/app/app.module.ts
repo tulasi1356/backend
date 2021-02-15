@@ -38,6 +38,8 @@ import { BagComponent } from './bag/bag.component';
 import { ForgotpasswordComponent } from './forgotpassword/forgotpassword.component';
 import {AngularFireModule} from "@angular/fire";
 import {AngularFireStorageModule} from "@angular/fire/storage";
+// import {StorageBucket} from "@angular/fire/storage";
+
 import {AngularFireDatabaseModule} from "@angular/fire/database";
 import { environment } from "../environments/environment";
 @NgModule({
