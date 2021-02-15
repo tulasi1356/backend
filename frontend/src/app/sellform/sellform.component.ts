@@ -34,10 +34,10 @@ filePath:String
     age: ['', Validators.required],
     size:['',Validators.required],
     noofproducts:['',Validators.required],
-    // image:['',Validators.required],
+    image:[''],
     place:['',Validators.required],
     videolink:[''],
-    
+
 
 
 
@@ -68,6 +68,7 @@ Onsubmit() {
           if (url) {
             this.fb1 = url;
           }
+          this.sellproductform.value.image=this.fb1;
           console.log('url2',this.fb1);
         });
       })
@@ -77,7 +78,7 @@ Onsubmit() {
         console.log('url1',url);
       }
     });
-  
+  console.log("form values",this.sellproductform.value);
 this.sell.generalsellform(this.sellproductform.value).subscribe(
   data => {
     if(data==='succesful') {
