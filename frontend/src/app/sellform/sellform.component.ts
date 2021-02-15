@@ -3,7 +3,9 @@ import { Router } from '@angular/router';
 import { FormBuilder, Validators } from '@angular/forms';
 import { SellserviceService} from '../../services/sellservice.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
-
+import {AngularFireStorage} from '@angular/fire/storage';
+// import {AngularFireStorageModule} from '@angular/fire/storage'
+// import {AngularFireModule} from '@angular/fire'
 @Component({
   selector: 'app-sellform',
   templateUrl: './sellform.component.html',
@@ -15,8 +17,9 @@ colors = ['pink','yellow','red','green','blue','orange','white','black','brown',
 public imagechoosentoupload = false
 public selectedimage
 public url;
+filePath:String
   imagechecking: boolean;
-  constructor(private fb:FormBuilder,private router:Router,private sell:SellserviceService,private snackbar: MatSnackBar,) { }
+  constructor(private fb:FormBuilder,private router:Router,private sell:SellserviceService,private snackbar: MatSnackBar,private afStorage: AngularFireStorage) { }
   sellproductform = this.fb.group({
     companyname: ['', Validators.required],
     productname: ['', Validators.required],
@@ -37,7 +40,19 @@ public url;
 
 
   })
+
   ngOnInit(): void {
+
+  }
+  upload($event) {    
+    this.filePath = $event.target.files[0]
+  }
+  uploadImage(){
+    console.log(this.filePath)
+    this.afStorage.upload('/images'+Math.random()+this.filePath, this.filePath);
+    
+    console.log(this.afStorage.upload('/images'+Math.random()+this.filePath, this.filePath))
+      
   }
 Onsubmit() {
 this.sell.generalsellform(this.sellproductform.value).subscribe(

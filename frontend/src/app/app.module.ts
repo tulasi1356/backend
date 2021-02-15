@@ -83,8 +83,13 @@ import { environment } from "../environments/environment";
     AngularFireStorageModule,
     AngularFireModule,
     AngularFireDatabaseModule,
-    AngularFireModule.initializeApp(environment.firebaseConfig),
-
+    AngularFireModule.initializeApp({
+      apiKey: "AIzaSyD4TA6k34GEBF60o8Kg51Km8uNAYvz0IYw",
+      authDomain: "commerce-277810.firebaseapp.com",
+      projectId: "commerce-277810",
+      storageBucket: "commerce-277810.appspot.com",
+    }),
+    AngularFireStorageModule
     // AngularFireModule.initializeApp(environment.firebaseConfig, "cloud")
   ],
   providers: [],

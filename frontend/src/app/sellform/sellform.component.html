@@ -95,7 +95,10 @@
                 <input matInput class="textbox" formControlName="place"
                     [class.is-invalid]="sellproductform.get('place').touched && sellproductform.get('place').invalid">
             </mat-form-field>
+            {{!-- <label for="file">File:</label> --}}
             
+            <input type="file" (change)="upload($event)" accept=".png,.jpg" />
+            <button type="button" (click)="uploadImage()">Upload Image</button>   
             <!-- <br> -->
             <!-- <div class="imagesection">
                 <img *ngIf="imagechecking" [src]="url" class="imagethumbnail" width="100px"
