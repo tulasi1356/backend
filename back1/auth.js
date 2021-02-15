@@ -71,7 +71,7 @@ MongoClient.connect(url, function(err, db) {
     // user.verify = myobj.verify
     // let userModel= new User(user)
     // await userModel.save()
-    console.log("usermodel",userModel);
+    // console.log("usermodel",userModel);
         try {
           dbo.collection("registerdetails").find({email:req.body.email}).toArray(function(err, result) { 
             console.log(result.length)  
@@ -165,9 +165,7 @@ router.post('/login',function(req,res){
       res.send(JSON.stringify('account does not exit'))
     } else {
       req.session.details = result[0].name;
-      // console.log('username',result[0].name);
       res.send(JSON.stringify(result[0].name))
-      // console.log('sesssions',req.session.details);
     }
   })
 

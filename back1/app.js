@@ -7,7 +7,7 @@ var session = require('express-session')
 const auth=require('./auth');
 var serverPort = 3000;
 const PORT = process.env.PORT || 5000;
-// const sell = require('./sell');
+const sell = require('./sell');
 const path=require('path')
 
 var MongoClient = require('mongodb').MongoClient;
@@ -39,7 +39,7 @@ app.use(express.static(path.join(__dirname,'dist/back')))
 
 app.use('/auth',auth);
 // app.use('/', routes);
-// app.use('/sell',sell);
+app.use('/sell',sell);
 app.get('/*',function(req,res){
   res.sendFile(path.join(__dirname,'/dist/back/index.html'))
   // app.use(express.static(path.join(__dirname,'auth')))
