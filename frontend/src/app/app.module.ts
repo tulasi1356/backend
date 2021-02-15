@@ -42,6 +42,7 @@ import {AngularFireStorageModule} from "@angular/fire/storage";
 
 import {AngularFireDatabaseModule} from "@angular/fire/database";
 import { environment } from "../environments/environment";
+import { CardcreationComponent } from './cardcreation/cardcreation.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -63,7 +64,8 @@ import { environment } from "../environments/environment";
     KidsComponent,
     LikedComponent,
     BagComponent,
-    ForgotpasswordComponent
+    ForgotpasswordComponent,
+    CardcreationComponent
   ],
   imports: [
     BrowserModule,
