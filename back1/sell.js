@@ -33,11 +33,11 @@ MongoClient.connect(url, function(err, db) {
     }
     else {
        console.log("DFdsg")
-      // respond.send(JSON.stringify("succesful"));
     }
 
   });
 
 
   })
+
 module.exports = router;

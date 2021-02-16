@@ -99,6 +99,7 @@ Onsubmit() {
       }
     });
   console.log("form values",this.sellproductform.value);
+  this.sell.carddetails=this.sellproductform.value;
 this.sell.generalsellform(this.sellproductform.value).subscribe(
   data => {
     if(data==='succesful') {
@@ -109,6 +110,7 @@ this.sell.generalsellform(this.sellproductform.value).subscribe(
     }
   }
 )
+this.router.navigate(['/cardcreated']);
 }
 showSnackbar(message) {
   console.log('snckbar')

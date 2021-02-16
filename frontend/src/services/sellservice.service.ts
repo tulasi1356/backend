@@ -5,15 +5,17 @@ import { HttpClient, HttpHeaders } from '@angular/common/http'
 })
 export class SellserviceService {
   private url='/sell/sellformdetails';
-  private url1='/sell/finalcard';
+  // private url1='/sell/finalcard';
+  public carddetails;
   constructor(private http: HttpClient) { }
 
   generalsellform(details) {
     // console.log('details',details);
     return this.http.post<any>(this.url,details);
   }
-  cardcreationdetails() {
-    return this.http.get<any>(this.url1)
-  }
+  // cardcreationdetails() {
+  //   return card
+  //   // return this.http.get<any>(this.url1)
+  // }
 
 }

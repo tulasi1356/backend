@@ -13,11 +13,8 @@ public finalcarddetails;
   constructor(private router:Router,private sell:SellserviceService,private snackbar: MatSnackBar,) { }
 
   ngOnInit(): void {
-    this.sell.cardcreationdetails().subscribe(
-      data=>{
-        this.finalcarddetails=data;
-      }
-    )
+   this.finalcarddetails = this.sell.carddetails;
+   console.log("finalcarddetails",this.finalcarddetails);
   }
 
 }
