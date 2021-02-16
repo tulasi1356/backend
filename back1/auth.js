@@ -164,7 +164,10 @@ router.post('/login',function(req,res){
     } else if(result.length === 0) {
       res.send(JSON.stringify('account does not exit'))
     } else {
-      req.session.details = result[0].name;
+      req.session.details ={id: result[0]._id,
+        name: result[0].name,email:result[0].email},
+        console.log("sessions",req.session.details);
+        
       res.send(JSON.stringify(result[0].name))
     }
   })

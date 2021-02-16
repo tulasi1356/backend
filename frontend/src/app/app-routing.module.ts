@@ -7,6 +7,7 @@ import { HomepageComponent } from './homepage/homepage.component';
 import { SellformComponent } from './sellform/sellform.component';
 import { GiftComponent } from './gift/gift.component';
 import { ForgotpasswordComponent } from './forgotpassword/forgotpassword.component';
+import { CardcreationComponent } from './cardcreation/cardcreation.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'home', pathMatch: 'full'},
@@ -16,7 +17,8 @@ const routes: Routes = [
   {path: 'verify1', component: VerificationComponent},
   {path:'sell',component:SellformComponent},
   {path:'gift',component:GiftComponent},
-  {path:'forgotpassword',component:ForgotpasswordComponent}
+  {path:'forgotpassword',component:ForgotpasswordComponent},
+  {path:'cardcreated',component:CardcreationComponent}
 
 ];
 

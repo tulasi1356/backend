@@ -3,7 +3,9 @@ const router=express.Router()
 var session = require('express-session')
 var url = "mongodb://localhost:27017/";
 var dbo
-
+const auth = require('./auth');
+var sell = express();
+sell.use('/auth',auth);
 var MongoClient = require('mongodb').MongoClient;
 MongoClient.connect(url, function(err, db) {
     if (err) throw err;

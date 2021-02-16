@@ -12,6 +12,7 @@ import {BounceInAnimationDirective} from './directives/gsap/bounce-in-animations
 import {FadeInAnimationDirective} from './directives/gsap/fade-in-animation.directive';
 import {ContinousrotationInAnimationDirective} from './directives/gsap/rotations-in-animations';
 import {MovingInAnimationDirective} from './directives/gsap/moving-in-animations';
+// import {MatCardModule} from '@angular/material/card';
 // MAT FIELDS
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
