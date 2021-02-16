@@ -42,8 +42,9 @@ import {AngularFireStorageModule} from "@angular/fire/storage";
 // import {StorageBucket} from "@angular/fire/storage";
 
 import {AngularFireDatabaseModule} from "@angular/fire/database";
-import { environment } from "../environments/environment";
+// import { environment } from "../environments/environment";
 import { CardcreationComponent } from './cardcreation/cardcreation.component';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 @NgModule({
   declarations: [
     AppComponent,
@@ -87,6 +88,7 @@ import { CardcreationComponent } from './cardcreation/cardcreation.component';
     MatSelectModule,
     AngularFireStorageModule,
     AngularFireModule,
+    MatProgressSpinnerModule,
     AngularFireDatabaseModule,
     AngularFireModule.initializeApp({
       apiKey: "AIzaSyD4TA6k34GEBF60o8Kg51Km8uNAYvz0IYw",

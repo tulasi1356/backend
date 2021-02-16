@@ -69,18 +69,18 @@
     
     
 }
-// input[type='file'] {
-//     opacity:0;
-//     display: none; 
-//    // display:flex;
-// //    align-items:center;  
-//   }
+input[type='file'] {
+    opacity:0;
+    display: none; 
+   // display:flex;
+//    align-items:center;  
+  }
   label{
     font-family: Poppins;
           font-weight: 600;
           font-size: 14px;
         //   margin-top:20px;
-        //   margin-left: 30px;
+          margin-left: 10px;
           // padding-left: 50px;
           // padding-right: 50px;
           padding-top: 20px;
@@ -94,7 +94,7 @@
           display: flex;
           justify-content: center;
           align-items: center;
-          text-align: center;
+        //   text-align: center;
   }
   .imagesection {
       margin-left: 37%;

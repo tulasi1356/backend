@@ -46,11 +46,31 @@ filePath:String
   ngOnInit(): void {
 
   }
-  upload($event) {    
-    this.filePath = $event.target.files[0]
+  public spinnerstart=false;
+  upload($event) {   
+    this.spinnerstart = true; 
+    this.filePath = $event.target.files[0];
+    if ($event.target.files.length > 0) {
+      const file = $event.target.files[0]
+      this.selectedimage = $event.target.files[0]
+      var reader = new FileReader();
+      reader.onload = (event: any) => {
+  this.spinnerstart = false; 
+
+        this.imageloader = true;
+        this.url = event.target.result;
+      }
+      reader.readAsDataURL(file);
+    // this.imageloader=true;
+
+    // reader.readAsDataURL(file);
+   
   }
+}
   downloadURL: Observable<string>;
   fb1;
+  imageloader=false;
+
 Onsubmit() {
   console.log("********")
   var n = Date.now();
