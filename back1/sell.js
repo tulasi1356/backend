@@ -15,15 +15,15 @@ MongoClient.connect(url, function(err, db) {
  
   router.post('/sellformdetails',function(req,res){
       console.log(req.session.details);
-  myobj={companyname:req.body.companyname,productname:req.body.productname,category:req.body.category,type:req.body.type,brand:req.body.brand,color:req.body.color,realprize:req.body.realprize,discount:req.body.discount,age:req.body.age,size:req.body.size,noofproduct:req.body.noofproducts,image:req.body.image,place:req.body.place,videolink:req.body.videolink};
+  myobj={userid:req.session.details.id,companyname:req.body.companyname,productname:req.body.productname,category:req.body.category,type:req.body.type,brand:req.body.brand,color:req.body.color,realprize:req.body.realprize,discount:req.body.discount,age:req.body.age,size:req.body.size,noofproduct:req.body.noofproducts,image:req.body.image,place:req.body.place,videolink:req.body.videolink};
   console.log('myobj',myobj);
   dbo.collection("sellformdetails").insertOne(myobj, function(err, respond) {
     if(err) {
        console.log(err)
     }
     else {
-      //  console.log("DFdsg")
-      respond.send(JSON.stringify("succesful"));
+       console.log("DFdsg")
+      // respond.send(JSON.stringify("succesful"));
     }
 
   });
