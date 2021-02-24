@@ -64,14 +64,14 @@ MongoClient.connect(url, function(err, db) {
     // let hash="ah"
     let hash = await bcrypt.hash(req.body.password,saltRounds)
     myobj={name:req.body.username,email:req.body.email,password:hash,verify:false}
-    // let user ={};
-    // user.name=myobj.name
-    // user.email=myobj.email
-    // user.password = myobj.password
-    // user.verify = myobj.verify
-    // let userModel= new User(user)
-    // await userModel.save()
-    // console.log("usermodel",userModel);
+    let user ={};
+    user.name=myobj.name
+    user.email=myobj.email
+    user.password = myobj.password
+    user.verify = myobj.verify
+    let userModel= new User(user)
+    await userModel.save()
+    console.log("usermodel",userModel);
         try {
           dbo.collection("registerdetails").find({email:req.body.email}).toArray(function(err, result) { 
             console.log(result.length)  
