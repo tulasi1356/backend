@@ -1,12 +1,19 @@
 <body>
-    <!-- <p>register works!</p> -->
+
+
+
+<div class="main">
+ <div class="image-section">
+   <img src="../../assets/sittingopen-removebg.png" width="500px" height="500px">
+</div>
 <div class="form example-form">
+
     <form [formGroup]="signupForm" (ngSubmit)="Onsubmit()">
         <mat-form-field appearance="outline" class="example-full-width">
             <mat-label class="label">Name</mat-label>
             <input matInput class="textbox" formControlName="username"
                 [class.is-invalid]="signupForm.get('username').touched && signupForm.get('username').invalid">
-            <!-- <mat-error *ngIf="!signupForm.get('username').valid">{{usernameErrorMessage()}}</mat-error> -->
+           
         </mat-form-field>
         <br>
         <mat-form-field appearance="outline" class="example-full-width">
@@ -18,10 +25,7 @@
         <mat-form-field appearance="outline" class="example-full-width">
             <mat-label class="label">Password</mat-label>
             <input matInput class="textbox"  formControlName="password">
-            <!-- <mat-icon matSuffix (click)="hide = !hide" class="eye">{{hide?'visibility_off':'visibility'}} -->
-            <!-- </mat-icon> -->
-            <!-- <mat-error *ngIf="!signupForm.get('password').valid">{{passwordErrorMessage()}}</mat-error> -->
-        </mat-form-field>
+            </mat-form-field>
         <br>
         <mat-form-field appearance="outline" class="example-full-width">
             <mat-label class="label">Repeat Password</mat-label>
@@ -42,4 +46,6 @@
         </div>
     </form>
 </div>
+</div>
+
 </body>
