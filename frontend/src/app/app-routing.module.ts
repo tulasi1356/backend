@@ -8,6 +8,7 @@ import { SellformComponent } from './sellform/sellform.component';
 import { GiftComponent } from './gift/gift.component';
 import { ForgotpasswordComponent } from './forgotpassword/forgotpassword.component';
 import { CardcreationComponent } from './cardcreation/cardcreation.component';
+import { KidsComponent } from './kids/kids.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'home', pathMatch: 'full'},
@@ -18,7 +19,8 @@ const routes: Routes = [
   {path:'sell',component:SellformComponent},
   {path:'gift',component:GiftComponent},
   {path:'forgotpassword',component:ForgotpasswordComponent},
-  {path:'cardcreated',component:CardcreationComponent}
+  {path:'cardcreated',component:CardcreationComponent},
+  {path:'kids',component:KidsComponent}
 
 ];
 
