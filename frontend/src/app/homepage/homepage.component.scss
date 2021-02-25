@@ -118,3 +118,12 @@ height: auto;
 }
 
 }
+.footer {
+    display: flex;
+    text-align: center;
+    align-items: center;
+    margin-left: 50px;
+    .sentence {
+        margin-left: 50px;
+    }
+}
