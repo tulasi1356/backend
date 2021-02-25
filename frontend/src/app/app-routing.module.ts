@@ -9,6 +9,7 @@ import { GiftComponent } from './gift/gift.component';
 import { ForgotpasswordComponent } from './forgotpassword/forgotpassword.component';
 import { CardcreationComponent } from './cardcreation/cardcreation.component';
 import { KidsComponent } from './kids/kids.component';
+import { MenComponent } from './men/men.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'home', pathMatch: 'full'},
@@ -20,7 +21,8 @@ const routes: Routes = [
   {path:'gift',component:GiftComponent},
   {path:'forgotpassword',component:ForgotpasswordComponent},
   {path:'cardcreated',component:CardcreationComponent},
-  {path:'kids',component:KidsComponent}
+  {path:'kids',component:KidsComponent},
+  {path:'men',component:MenComponent},
 
 ];
 
