@@ -46,6 +46,7 @@ import {AngularFireDatabaseModule} from "@angular/fire/database";
 import { CardcreationComponent } from './cardcreation/cardcreation.component';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { NotepadComponent } from './notepad/notepad.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -69,7 +70,8 @@ import { NotepadComponent } from './notepad/notepad.component';
     BagComponent,
     ForgotpasswordComponent,
     CardcreationComponent,
-    NotepadComponent
+    NotepadComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,

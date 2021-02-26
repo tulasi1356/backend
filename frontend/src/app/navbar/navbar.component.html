@@ -22,7 +22,8 @@
      <mat-icon  matTooltip="auth.username"  [matMenuTriggerFor]="appMenu">person</mat-icon>
 
      <mat-menu class="menu-overflow-hidden" #appMenu="matMenu">
-      <button *ngIf="auth.username == null ||auth.username.length==0 ; else userinfo" mat-raised-button routerLink="/signup">Login/signup</button>
+      <button *ngIf="auth.username == null ||auth.username.length==0 ; else userinfo" mat-raised-button routerLink="/signup">Login/signup</button><br><br>
+      <button mat-raised-button routerLink="/dashboard">Dashboard</button>
       <ng-template #userinfo>
         <!-- <p>{{auth.username}}</p> -->
         <!-- {{auth.username}} -->

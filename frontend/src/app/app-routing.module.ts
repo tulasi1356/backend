@@ -10,6 +10,7 @@ import { ForgotpasswordComponent } from './forgotpassword/forgotpassword.compone
 import { CardcreationComponent } from './cardcreation/cardcreation.component';
 import { KidsComponent } from './kids/kids.component';
 import { MenComponent } from './men/men.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'home', pathMatch: 'full'},
@@ -23,6 +24,7 @@ const routes: Routes = [
   {path:'cardcreated',component:CardcreationComponent},
   {path:'kids',component:KidsComponent},
   {path:'men',component:MenComponent},
+  {path:'dashboard',component:DashboardComponent},
 
 ];
 
