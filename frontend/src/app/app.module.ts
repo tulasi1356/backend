@@ -47,6 +47,7 @@ import { CardcreationComponent } from './cardcreation/cardcreation.component';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { NotepadComponent } from './notepad/notepad.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { NewsComponent } from './news/news.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -71,7 +72,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     ForgotpasswordComponent,
     CardcreationComponent,
     NotepadComponent,
-    DashboardComponent
+    DashboardComponent,
+    NewsComponent
   ],
   imports: [
     BrowserModule,
